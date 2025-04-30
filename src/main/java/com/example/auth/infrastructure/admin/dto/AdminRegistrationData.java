@@ -1,6 +1,7 @@
 package com.example.auth.infrastructure.admin.dto;
 
 import com.example.auth.infrastructure.user.validation.formats.RightName;
+import com.example.auth.infrastructure.user.validation.security.RightCode;
 import com.example.auth.infrastructure.user.validation.unique.UniqueEmail;
 import com.example.auth.infrastructure.user.validation.unique.UniqueUsername;
 import com.example.auth.usecase.admin.dto.IAdminRegistrationData;
@@ -29,6 +30,11 @@ public record AdminRegistrationData(
         @Size(min = 3, max = 40)
         @Email
         @UniqueEmail(message = "{unique.user.email}")
-        String email
+        String email,
+        
+        @NotBlank
+        @Size(min = 5, max = 12)
+        @RightCode(message = "{right.admin.code}")
+        String code
         
         ) implements IAdminRegistrationData { }
