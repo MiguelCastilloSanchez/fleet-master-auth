@@ -1,6 +1,7 @@
 package com.example.auth.usecase.admin;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.example.auth.entity.admin.gateway.AdminGateway;
@@ -15,7 +16,9 @@ public class CreateAdminUseCase {
 
     public Admin execute(IAdminRegistrationData data) {
 
-        Admin admin = new Admin(data.username(), data.password(), data.name(),
+        String encryptedPassword = new BCryptPasswordEncoder().encode(data.password());
+
+        Admin admin = new Admin(data.username(), encryptedPassword, data.name(),
             data.email());
 
         return this.adminGateway.create(admin);

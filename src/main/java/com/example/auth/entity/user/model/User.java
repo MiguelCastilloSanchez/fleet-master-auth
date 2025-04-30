@@ -2,7 +2,7 @@ package com.example.auth.entity.user.model;
 
 import com.example.auth.entity.AbstractEntity;
 
-public abstract class User extends AbstractEntity<Long> {
+public class User extends AbstractEntity<Long> {
 
   private String username;
   private String email;
@@ -10,6 +10,15 @@ public abstract class User extends AbstractEntity<Long> {
   private String name;
   protected String role;
   private boolean enabled;
+
+  public User(String username, String password, String name, String email, String role) {
+    this.username = username;
+    this.password = password;
+    this.name = name;
+    this.email = email;
+    this.enabled = true;
+    this.role = role;
+  }
 
   public User(String username, String password, String name, String email) {
     this.username = username;
