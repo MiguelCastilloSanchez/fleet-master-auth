@@ -19,7 +19,7 @@ public class GetAdminController {
     private GetAdminUseCase getAdminUseCase;
 
     @GetMapping("/admin/{id}")
-    @ResponseStatus(HttpStatus.CREATED)
+    @ResponseStatus(HttpStatus.OK)
     public AdminPublicData getAdmin(@PathVariable Long id) throws AdminNotFoundException {
         Admin admin = getAdminUseCase.execute(id);
 
