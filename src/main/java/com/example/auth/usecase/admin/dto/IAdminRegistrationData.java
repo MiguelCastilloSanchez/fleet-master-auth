@@ -12,4 +12,6 @@ public interface IAdminRegistrationData {
 
     String email();
 
+    String code();
+
 }
