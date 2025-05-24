@@ -5,7 +5,7 @@ pipeline {
     IMAGE_NAME = "fleet_master_auth_project"
     SERVICE_NAME = "fleet_master_auth"
     GH_TOKEN = credentials("github-token")
-    BUILD_ID = "{env.BUILD_ID}"
+    BUILD_ID = "${env.BUILD_ID}"
   }
 
   stages {
