@@ -3,6 +3,9 @@ package com.example.auth.infrastructure.config.exception;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.ConstraintViolationException;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;
@@ -18,13 +21,17 @@ import java.util.*;
 @SuppressWarnings("rawtypes")
 public class ErrorsHandler {
 
+  private static final Logger logger = LoggerFactory.getLogger(ErrorsHandler.class);
+
   @ExceptionHandler(EntityNotFoundException.class)
-  public ResponseEntity handleError404() {
+  public ResponseEntity handleError404(EntityNotFoundException ex) {
+    logger.error("Entity not found for request");
     return ResponseEntity.notFound().build();
   }
 
   @ExceptionHandler(MethodArgumentNotValidException.class)
   public ResponseEntity handleError400(MethodArgumentNotValidException ex) {
+    logger.warn("Validation failed in request");
     List<FieldError> errors = ex.getFieldErrors();
 
     List<ValidationErrorData> messages = new ArrayList<>(errors.size());
@@ -51,12 +58,13 @@ public class ErrorsHandler {
 
   @ExceptionHandler(HttpMessageNotReadableException.class)
   public ResponseEntity handleError400(HttpMessageNotReadableException ex) {
+    logger.warn("Message not readable from request");
     return ResponseEntity.badRequest().body(ex.getMessage());
   }
 
   @ExceptionHandler(ConstraintViolationException.class)
   public ResponseEntity handleValidationerror(ConstraintViolationException ex) {
-
+    logger.warn("Constrait violation from request");
     Set<ConstraintViolation<?>> constraintViolations = ex.getConstraintViolations();
 
     List<ValidationErrorData> messages = new ArrayList<>(constraintViolations.size());
@@ -84,11 +92,13 @@ public class ErrorsHandler {
 
   @ExceptionHandler(Exception.class)
   public ResponseEntity handleError500(Exception ex) {
+    logger.error("Internal server error: " + ex);
     return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("error: " + ex.getLocalizedMessage());
   }
 
   @ExceptionHandler(JpaSystemException.class)
   public ResponseEntity handleError500(JpaSystemException ex) {
+    logger.error("JPA server error: " + ex);
     return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("error: " + ex.getLocalizedMessage());
   }
 

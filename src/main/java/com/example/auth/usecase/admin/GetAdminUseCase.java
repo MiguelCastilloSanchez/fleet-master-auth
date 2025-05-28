@@ -9,7 +9,7 @@ import com.example.auth.entity.admin.model.Admin;
 
 @Service
 public class GetAdminUseCase {
-    
+
     @Autowired
     private AdminGateway adminGateway;
 
