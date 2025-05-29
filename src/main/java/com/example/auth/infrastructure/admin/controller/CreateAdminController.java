@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.auth.infrastructure.admin.dto.AdminPublicData;
 import com.example.auth.infrastructure.admin.dto.AdminRegistrationData;
 import com.example.auth.usecase.admin.CreateAdminUseCase;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
+@CrossOrigin(origins = "*")
 @RestController
 public class CreateAdminController {
 

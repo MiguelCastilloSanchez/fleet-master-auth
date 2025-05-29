@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.auth.entity.admin.exception.AdminNotFoundException;
 import com.example.auth.infrastructure.admin.dto.AdminPublicData;
 import com.example.auth.usecase.admin.DeleteAdminUseCase;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
+@CrossOrigin(origins = "*")
 @RestController
 public class DeleteAdminController {
 

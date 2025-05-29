@@ -13,8 +13,9 @@ import com.example.auth.entity.user.exception.UserNotFoundException;
 import com.example.auth.infrastructure.authentication.dto.AuthenticationData;
 import com.example.auth.infrastructure.authentication.dto.LoginResponseData;
 import com.example.auth.usecase.authentication.LoginUseCase;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
-
+@CrossOrigin(origins = "*")
 @RestController
 public class Login {
 

@@ -1,5 +1,6 @@
-2025-05-27 19:16:33.260 [main] INFO  com.example.auth.AuthApplication - Starting AuthApplication using Java 21.0.4 with PID 91944 (/home/mike/Documentos/fleet-master-auth/target/classes started by mike in /home/mike/Documentos/fleet-master-auth)
-2025-05-27 19:16:33.262 [main] DEBUG com.example.auth.AuthApplication - Running with Spring Boot v3.4.4, Spring v6.2.5
-2025-05-27 19:16:33.263 [main] INFO  com.example.auth.AuthApplication - No active profile set, falling back to 1 default profile: "default"
-2025-05-27 19:16:36.584 [main] DEBUG c.e.a.i.c.security.SecurityFilter - Filter 'securityFilter' configured for use
-2025-05-27 19:16:37.158 [main] INFO  com.example.auth.AuthApplication - Started AuthApplication in 4.43 seconds (process running for 4.698)
+2025-05-28 17:56:51.453 [main] INFO  com.example.auth.AuthApplication - Starting AuthApplication using Java 21.0.4 with PID 27347 (/home/mike/Documentos/fm/fleet-master-auth/target/classes started by mike in /home/mike/Documentos/fm/fleet-master-auth)
+2025-05-28 17:56:51.469 [main] DEBUG com.example.auth.AuthApplication - Running with Spring Boot v3.4.4, Spring v6.2.5
+2025-05-28 17:56:51.475 [main] INFO  com.example.auth.AuthApplication - No active profile set, falling back to 1 default profile: "default"
+2025-05-28 17:57:56.117 [main] INFO  com.example.auth.AuthApplication - Starting AuthApplication using Java 21.0.4 with PID 28700 (/home/mike/Documentos/fm/fleet-master-auth/target/classes started by mike in /home/mike/Documentos/fm/fleet-master-auth)
+2025-05-28 17:57:56.119 [main] DEBUG com.example.auth.AuthApplication - Running with Spring Boot v3.4.4, Spring v6.2.5
+2025-05-28 17:57:56.120 [main] INFO  com.example.auth.AuthApplication - No active profile set, falling back to 1 default profile: "default"

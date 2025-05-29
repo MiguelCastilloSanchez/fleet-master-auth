@@ -11,7 +11,9 @@ import com.example.auth.infrastructure.admin.dto.AdminPublicData;
 import com.example.auth.usecase.admin.SearchAdminUseCase;
 
 import java.util.List;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
+@CrossOrigin(origins = "*")
 @RestController
 public class SearchAdminController {
 
