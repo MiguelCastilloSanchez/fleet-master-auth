@@ -1,6 +1,8 @@
 package com.example.auth.entity.admin.exception;
 
-public class AdminNotFoundException extends Exception {
+import jakarta.persistence.EntityNotFoundException;
+
+public class AdminNotFoundException extends EntityNotFoundException {
 
     public AdminNotFoundException() {
         super("Couldn't find the admin!");
